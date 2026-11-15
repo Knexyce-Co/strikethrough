@@ -1,0 +1,156 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "strikethrough"
+version = "1.0.1"
+description = "The command-line interface and distribution layer for Skywatch, an autonomous local AI system."
+license = "Apache-2.0"
+readme = "README.md"
+requires-python = ">=3.10"
+license-files = ["LICENSE"]
+dependencies = [
+    "Jinja2",
+    "torch",
+    "torchvision",
+    "transformers",
+    "accelerate",
+    "safetensors",
+    "sentence-transformers",
+    "charset-normalizer",
+    "numpy",
+    "psutil",
+    "bitsandbytes",
+    "hqq",
+    "peft",
+    "ddgs",
+    "playwright",
+    "crawl4ai",
+    # These four skip the KDPH bootstrap. More secure to have `pip` resolve.
+    "PyGithub",
+    "argon2-cffi",
+    "requests",
+    "cryptography"
+]
+authors = [
+    { name = "Ayan Alam", email = "knexyce@proton.me" }
+]
+keywords = [
+    "strikethrough",
+    "skywatch",
+    "ai",
+    "artificial-intelligence",
+    "ai-agent",
+    "autonomous-agent",
+    "agentic-ai",
+    "agentic-systems",
+    "autonomous-systems",
+    "machine-learning",
+    "deep-learning",
+    "large-language-models",
+    "llm",
+    "generative-ai",
+    "local-ai",
+    "local-llm",
+    "local-inference",
+    "llm-inference",
+    "natural-language-processing",
+    "nlp",
+    "retrieval-augmented-generation",
+    "rag",
+    "model-quantization",
+    "fine-tuning",
+    "lora",
+    "qlora",
+    "artificial-general-intelligence",
+    # --- Potential. ---
+    "agi",
+    "asi",
+    # --- Potential. ---
+    "recursive-self-improvement",
+    "autonomous-software",
+    "software-engineering",
+    "software-development",
+    "developer-tools",
+    "development-automation",
+    "workflow-automation",
+    "task-automation",
+    "system-administration",
+    "system-monitoring",
+    "research",
+    "ai-research",
+    "machine-learning-research",
+    "computer-science",
+    "experimental-ai",
+    "experimental-systems",
+    "command-line",
+    "cli",
+    "python"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Systems Administration",
+    "Topic :: System :: Monitoring",
+    "Topic :: Utilities"
+]
+
+[project.urls]
+Homepage = "https://github.com/Knexyce-Co/strikethrough"
+Repository = "https://github.com/Knexyce-Co/strikethrough.git"
+Source = "https://github.com/Knexyce-Co/strikethrough"
+Issues = "https://github.com/Knexyce-Co/strikethrough/issues"
+Documentation = "https://github.com/Knexyce-Co/strikethrough#readme"
+Skywatch_Disclosure = "https://knexyce-co.github.io/skywatch_disclosure/"
+
+[project.scripts]
+scli = "strikethrough.cli:main"
+strikethrough = "strikethrough.cli:main"
+
+[dependency-groups]
+dev = [
+    "build",
+    "twine",
+    "pytest",
+    "ruff",
+    "mypy"
+]
+
+[tool.setuptools]
+package-dir = {"" = "mainline"}
+include-package-data = true
+zip-safe = false
+
+[tool.setuptools.packages.find]
+where = ["mainline"]
+include = ["strikethrough*"]
+namespaces = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
